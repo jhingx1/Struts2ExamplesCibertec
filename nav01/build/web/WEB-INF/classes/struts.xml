@@ -1,0 +1,19 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <package name="default" extends="struts-default" namespace="/">
+        <action name="to_index">
+            <result name="success">/index.jsp</result>
+        </action>
+        <action name="to_doc01">
+            <result name="success">/doc01.jsp</result>
+        </action>
+        <action name="to_doc02">
+            <result name="success">/view/doc02.jsp</result>
+        </action>
+        <action name="to_doc03">
+            <result name="success">/view/doc03.jsp</result>
+        </action>
+    </package>
+</struts>

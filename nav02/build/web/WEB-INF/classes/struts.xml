@@ -1,0 +1,13 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <package name="default" extends="struts-default" namespace="/">
+        <action name="msg_msg01" class="web.action.ActionMsg01">
+            <result name="success">/result.jsp</result>
+        </action>
+        <action name="msg_msg02" class="web.action.ActionMsg02">
+            <result name="success">/result.jsp</result>
+        </action>
+    </package>
+</struts>

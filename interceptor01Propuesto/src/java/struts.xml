@@ -1,0 +1,26 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <package name="default" extends="struts-default" namespace="/">
+      
+        <interceptors>
+            <!-- El orden de los inteceptores debe ser el mismo aqui asi como los action.-->
+            <interceptor name="rangoHora" class="web.interceptor.RangoHoraInterceptor"/>
+            <interceptor name="EnMantenimiento" class="web.interceptor.EnMantenimientoInterceptor"/>
+        </interceptors>
+        
+        <action name="nuevo">
+            <result name="success">/nuevoUsuario.jsp</result>
+        </action>
+        <!-- Interceptor solo al segundo acction -->
+        <action name="registro" class="web.action.RegistroUsuarioAction">
+            <!-- Orden de los action -->
+            <interceptor-ref name="rangoHora"/>
+            <interceptor-ref name="EnMantenimiento"/>
+            <result name="success">/resultado.jsp</result>
+            <result name="cerradoHorario">/cerradoHorario.jsp</result>
+            <result name="cerrado">/cerrado.jsp</result>
+        </action>
+    </package>
+</struts>

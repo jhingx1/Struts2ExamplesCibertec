@@ -1,0 +1,24 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <package name="default" extends="struts-default" namespace="/">
+        <interceptors>
+            <interceptor name="rangoHora" class="web.interceptor.RangoHoraInterceptor"/>
+        </interceptors>
+        
+        <action name="nuevo">
+            <result name="success">/nuevoUsuario.jsp</result><!--Nos redirige hacia el jsp /nuevoUsuario -->
+        </action>
+        <!-- Interceptor solo al segundo acction -->
+        <!-- Desde la pagina jsp, va hacia la etiqueta name = registro y a la clase RegistroUsuarioAction-->
+        <action name="registro" class="web.action.RegistroUsuarioAction">
+            <!-- Aqui tenemos un interceptor, entramos primero en el interceptor:rangoHora-->
+            <interceptor-ref name="rangoHora"/>
+            <!-- Despues de pasar el interceptor -->
+            <result name="success">/resultado.jsp</result>
+            <!-- Luego de hacer el login -->
+            <result name="cerrado">/cerrado.jsp</result>
+        </action>
+    </package>
+</struts>

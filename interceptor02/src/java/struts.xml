@@ -1,0 +1,19 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <package name="default" extends="struts-default" namespace="/">
+        <interceptors>
+            <!-- Definiendo un interceptor -->
+            <interceptor name="upper" class="web.interceptor.UpperInterceptor"/>
+        </interceptors>
+        <action name="login" class="web.action.LoginAction">
+            <!-- Colocando los interceptor para el manejo de los parametros-->
+            <!-- Nos redirigir al interceptor-->
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+            <!--Interceptor -->           
+            <interceptor-ref name="upper"></interceptor-ref>
+            <result>/welcome.jsp</result>
+        </action>
+    </package>
+</struts>

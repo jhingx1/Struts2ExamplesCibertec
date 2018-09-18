@@ -1,0 +1,16 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <package name="default" extends="struts-default" namespace="/">
+        <!-- No redirige hacia el action = ActionCarga-->
+        <action name="carga" class="web.action.ActionCarga">
+            <!-- Luego nos redirige hacia el .jsp entrada -->
+            <result name="success">/entrada.jsp</result>
+        </action>
+        <action name="data" class="web.action.ActionData"> <!-- Clase ActionData -->
+            <result name="input">/entrada.jsp</result>
+            <result name="success">/result.jsp</result>
+        </action>
+    </package>
+</struts>

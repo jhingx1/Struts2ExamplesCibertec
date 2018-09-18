@@ -1,0 +1,27 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="default" extends="struts-default" namespace="/">
+        <!-- Desde el index.jsp, para listar los tiempos-->
+        <action name="tiemposQry" class="web.action.ActionTiempos"
+                method="tiemposQry"><!-- Nos vamos al metodo tiempoQry(listar) del action ActionTiempo -->
+            <result name="success">/tiempos.jsp</result>
+        </action>
+        
+        <action name="tiemposGet" class="web.action.ActionTiempos"
+                method="tiemposGet"/>
+        <!--- tiemposIns, esta aqui, esta con una clase comodin "tiem*"-->
+        <!-- Va a la clase ActionTiempos-->
+        <!-- Vamos a todos los metodos tiemposIns,tiemposDel, tiemposGet y tiemposUpd -->
+        <action name="tiem*" class="web.action.ActionTiempos"
+                method="tiem{1}">
+            <result name="success">/index.jsp</result>
+            <result name="error">/tiempos.jsp</result>
+        </action>
+        
+    </package>
+</struts>
+
+

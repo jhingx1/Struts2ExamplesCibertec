@@ -1,0 +1,20 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <!-- Redireccionamiento hacia paginas externas -->
+    <package name="default" extends="tiles-default">
+        <action name="home">
+            <result>index.jsp</result>
+        </action>
+        <action name="about">
+            <result type="tiles">about.def</result>
+        </action>
+        <action name="contact">
+            <result type="tiles">contact.def</result>
+        </action>
+        <action name="productos">
+            <result type="tiles">productos.def</result>
+        </action>
+    </package>
+</struts>

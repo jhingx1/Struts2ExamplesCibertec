@@ -1,0 +1,23 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="default" extends="struts-default" namespace="/">
+        
+        <action name="proveedoresQry" class="web.action.ActionProveedores"
+                method="proveedoresQry">
+            <result name="success">/proveedores.jsp</result>
+        </action>
+        
+        <action name="proveedoresGet" class="web.action.ActionProveedores"
+                method="proveedoresGet"/>
+        
+        <action name="provee*" class="web.action.ActionProveedores" method="provee{1}">
+            <result name="success">/index.jsp</result>
+            <result name="error">/proveedores.jsp</result>
+        </action>
+        
+    </package>
+</struts>
+

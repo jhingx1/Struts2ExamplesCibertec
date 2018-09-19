@@ -1,0 +1,31 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <package name="default" extends="struts-default" namespace="/">
+        <action name="data1" class="web.action.ActionData"
+                method="mensaje1">
+            <!-- result name : input, va hacia el index-->
+            <result name="input">/index.jsp</result>
+            <!-- result name : succes, va hacia el result-->
+            <result name="success">/result.jsp</result>
+        </action>
+        <action name="data2" class="web.action.ActionData"
+                method="mensaje2">
+            <result name="input">/index.jsp</result>
+            <result name="success">/result.jsp</result>
+        </action>
+        <action name="data3" class="web.action.ActionData"
+                method="mensaje3">
+            <result name="input">/index.jsp</result>
+            <result name="success">/result.jsp</result>
+        </action>
+        <!-- name === method, se pueden usan varios asteriscos
+         <action name="*" class="web.action.ActionData"
+                method="{1}">
+            <result name="input">/index.jsp</result>
+            <result name="success">/result.jsp</result>
+        </action>
+        -->
+    </package>
+</struts>

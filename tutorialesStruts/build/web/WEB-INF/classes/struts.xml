@@ -1,0 +1,23 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="default" extends="struts-default" namespace="/">
+        
+        <action name="tutorialesQry" class="web.action.ActionTutoriales"
+                method="tutorialesQry">
+            <result name="success">/tutoriales.jsp</result>
+        </action>
+        
+        <action name="tutorialesGet" class="web.action.ActionTutoriales"
+                method="tutorialesGet"/>
+        
+        <action name="tuto*" class="web.action.ActionTutoriales" method="tuto{1}">
+            <result name="success">/index.jsp</result>
+            <result name="error">/tutoriales.jsp</result>
+        </action>
+        
+    </package>
+</struts>
+

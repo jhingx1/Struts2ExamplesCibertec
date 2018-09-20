@@ -2,7 +2,7 @@ package dto;
 
 import java.sql.Timestamp;
 
-public class Profesor {
+public class Profesores {
 
     private Integer idprofesor;
     private String nombreprofesor;
@@ -10,7 +10,7 @@ public class Profesor {
     private Timestamp fechahoraingreso;
     private String tipocontrato;
 
-    public Profesor() {
+    public Profesores() {
     }
 
     public Integer getIdprofesor() {

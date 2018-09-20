@@ -1,7 +1,7 @@
 package dao.impl;
 
-import dao.DaoFrases;
-import dto.Frases;
+import dao.DaoCursos;
+import dto.Cursos;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,7 +10,7 @@ import java.util.LinkedList;
 import java.util.List;
 import parainfo.sql.ConectaDb;
 
-public class DaoCursosImpl implements DaoFrases {
+public class DaoCursosImpl implements DaoCursos {
 
     private final ConectaDb db;
     private final StringBuilder sql;
@@ -22,15 +22,15 @@ public class DaoCursosImpl implements DaoFrases {
     }
 
     @Override
-    public List<Object[]> frasesQry() {
+    public List<Object[]> cursosQry() {
         List<Object[]> list = null;
         sql.append("SELECT ")
-                .append("frases.idfrase,")
+                .append("cursos.idfrase,")
                 .append("autores.autor,")
-                .append("frases.frase ")
-                .append("FROM frases ")
+                .append("cursos.frase ")
+                .append("FROM cursos ")
                 .append("INNER JOIN autores ")
-                .append("ON frases.idautor=autores.idautor ")
+                .append("ON cursos.idautor=autores.idautor ")
                 .append("ORDER BY autores.autor");
 
         try (Connection cn = db.getConnection();
@@ -57,9 +57,9 @@ public class DaoCursosImpl implements DaoFrases {
     }
 
     @Override
-    public String frasesIns(Frases frases) {        
+    public String cursosIns(Cursos cursos) {        
         //Solo inserta codigo
-        sql.append("INSERT INTO frases(")
+        sql.append("INSERT INTO cursos(")
                 .append("idautor,")
                 .append("frase")
                 .append(") VALUES(?,?)");
@@ -69,8 +69,8 @@ public class DaoCursosImpl implements DaoFrases {
             Connection cn = db.getConnection();
             PreparedStatement ps = cn.prepareStatement(sql.toString())) {
 
-            ps.setInt(1, frases.getIdautor());
-            ps.setString(2, frases.getFrase());
+            ps.setInt(1, cursos.getIdautor());
+            ps.setString(2, cursos.getFrase());
 
             int ctos = ps.executeUpdate();
             if (ctos == 0) {
@@ -85,9 +85,9 @@ public class DaoCursosImpl implements DaoFrases {
     }
 
     @Override
-    public String frasesDel(List<Integer> ids) {
+    public String cursosDel(List<Integer> ids) {
         
-        sql.append("DELETE FROM frases WHERE idfrase=?");
+        sql.append("DELETE FROM cursos WHERE idfrase=?");
 
         try (Connection cn = db.getConnection();
                 PreparedStatement ps
@@ -123,13 +123,13 @@ public class DaoCursosImpl implements DaoFrases {
     }
     //para actualizar.
     @Override
-    public Frases frasesGet(Integer idfrase) {
-        Frases frases = null;
+    public Cursos cursosGet(Integer idfrase) {
+        Cursos cursos = null;
         sql.append("SELECT ")
                 .append("idfrase,")
                 .append("idautor,")
                 .append("frase ")
-                .append("FROM frases ")
+                .append("FROM cursos ")
                 .append("WHERE idfrase=?");
 
         try (Connection cn = db.getConnection();
@@ -140,11 +140,11 @@ public class DaoCursosImpl implements DaoFrases {
 
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
-                    frases = new Frases();
+                    cursos = new Cursos();
 
-                    frases.setIdfrase(rs.getInt(1));
-                    frases.setIdautor(rs.getInt(2));
-                    frases.setFrase(rs.getString(3));
+                    cursos.setIdfrase(rs.getInt(1));
+                    cursos.setIdautor(rs.getInt(2));
+                    cursos.setFrase(rs.getString(3));
 
                 } else {
                     throw new SQLException("ID: " 
@@ -156,12 +156,12 @@ public class DaoCursosImpl implements DaoFrases {
             message = e.getMessage();
         }
 
-        return frases;
+        return cursos;
     }
     //Para actualizar
     @Override
-    public String frasesUpd(Frases frases) {
-        sql.append("UPDATE frases SET ")
+    public String cursosUpd(Cursos cursos) {
+        sql.append("UPDATE cursos SET ")
                 .append("idautor=?,")
                 .append("frase=? ")
                 .append("WHERE idfrase=?");
@@ -170,9 +170,9 @@ public class DaoCursosImpl implements DaoFrases {
                 PreparedStatement ps = 
                         cn.prepareStatement(sql.toString())) {
 
-            ps.setInt(1, frases.getIdautor());
-            ps.setString(2, frases.getFrase());
-            ps.setInt(3, frases.getIdfrase());
+            ps.setInt(1, cursos.getIdautor());
+            ps.setString(2, cursos.getFrase());
+            ps.setInt(3, cursos.getIdfrase());
 
             int ctos = ps.executeUpdate();
             if (ctos == 0) {

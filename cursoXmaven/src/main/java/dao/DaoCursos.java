@@ -1,19 +1,19 @@
 package dao;
 
-import dto.Frases;
+import dto.Cursos;
 import java.util.List;
 
 public interface DaoCursos {
     
-    public List<Object[]> frasesQry();
+    public List<Object[]> cursosQry();
     
-    public String frasesIns(Frases frases);
+    public String cursosIns(Cursos cursos);
 
-    public String frasesDel(List<Integer> ids);
+    public String cursosDel(List<Integer> ids);
 
-    public Frases frasesGet(Integer idfrase);
+    public Cursos cursosGet(Integer idfrase);
 
-    public String frasesUpd(Frases frases);
+    public String cursosUpd(Cursos cursos);
     
     public String getMessage();
 }

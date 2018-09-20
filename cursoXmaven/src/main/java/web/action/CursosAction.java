@@ -19,7 +19,7 @@ import parainfo.convert.DeString;
 
 public class CursosAction extends ActionSupport implements Validateable {
     private static final long serialVersionUID = 1L;	
-    private Cursos frases;
+    private Cursos cursos;
     private List<Object[]> list;
     private List<Profesores> cboProfesores;
 
@@ -28,16 +28,17 @@ public class CursosAction extends ActionSupport implements Validateable {
 
     // getter y setter
     public Cursos getCursos() {
-        return frases;
+        return cursos;
     }
 
-    public void setCursos(Cursos frases) {
-        this.frases = frases;
+    public void setCursos(Cursos cursos) {
+        this.cursos = cursos;
     }
 
     public List<Object[]> getList() {
         DaoCursos daoCursos = new DaoCursosImpl();
-        list = daoCursos.frasesQry();
+        
+        list = daoCursos.cursosQry();
 
         if (list == null) {
             String message = daoCursos.getMessage();
@@ -58,9 +59,9 @@ public class CursosAction extends ActionSupport implements Validateable {
     }
 
     // gestiona CRUD
-    public String frasesIns() {
+    public String cursosIns() {
     	DaoCursos daoCursos = new DaoCursosImpl();
-        String result = daoCursos.frasesIns(frases);
+        String result = daoCursos.cursosIns(cursos);
 
         if (result != null) {
             HttpServletRequest request = 
@@ -72,7 +73,7 @@ public class CursosAction extends ActionSupport implements Validateable {
         }
     }
 
-    public String frasesDel() {
+    public String cursosDel() {
         HttpServletRequest request = 
         		ServletActionContext.getRequest();
 		List<Integer> ids = 
@@ -83,7 +84,7 @@ public class CursosAction extends ActionSupport implements Validateable {
             result = "Lista de ID(s) incorrecta";
         } else {
             DaoCursos daoCursos = new DaoCursosImpl();
-            result = daoCursos.frasesDel(ids);
+            result = daoCursos.cursosDel(ids);
         }
 
         if (result == null) {
@@ -95,7 +96,7 @@ public class CursosAction extends ActionSupport implements Validateable {
         }
     }
 
-    public String frasesGet() {
+    public String cursosGet() {
         HttpServletRequest request = 
         		ServletActionContext.getRequest();
         Integer idfrase
@@ -104,9 +105,9 @@ public class CursosAction extends ActionSupport implements Validateable {
         String result = null;
         if (idfrase != null) {
             DaoCursos daoCursos = new DaoCursosImpl();
-            frases = daoCursos.frasesGet(idfrase);
+            cursos = daoCursos.cursosGet(idfrase);
 
-            if (frases == null) {
+            if (cursos == null) {
                 result = daoCursos.getMessage();
             }
         } else {
@@ -122,9 +123,9 @@ public class CursosAction extends ActionSupport implements Validateable {
         }
     }
     
-    public String frasesUpd() {
+    public String cursosUpd() {
     	DaoCursos daoCursos = new DaoCursosImpl();
-        String result = daoCursos.frasesUpd(frases);
+        String result = daoCursos.cursosUpd(cursos);
 
         if (result != null) {
             HttpServletRequest request = 
@@ -139,15 +140,15 @@ public class CursosAction extends ActionSupport implements Validateable {
     // validaciones
     @Override
     public void validate() {
-        if (frases != null) {
-            if ((frases.getIdautor() == null)) {
-                addFieldError("frases.idautor",
+        if (cursos != null) {
+            if ((cursos.getIdautor() == null)) {
+                addFieldError("cursos.idautor",
                         "Seleccione Autor");
             }
 
-            if ((frases.getFrase() == null)
-                    || (frases.getFrase().trim().length() == 0)) {
-                addFieldError("frases.frase",
+            if ((cursos.getFrase() == null)
+                    || (cursos.getFrase().trim().length() == 0)) {
+                addFieldError("cursos.frase",
                         "ingrese Frase Célebre");
             }
         }

@@ -16,14 +16,15 @@
         <script src="parainfo/table.js" type="text/javascript"></script>
         <script src="parainfo/message.js" type="text/javascript"></script>
 
-        <script src="js/frases.js" type="text/javascript"></script>
+        <!-- <script src="js/frases.js" type="text/javascript"></script> -->
+        <script src="js/cursos.js" type="text/javascript"></script>
     </head>
     <body>
         <table class="parainfo" style="margin: auto;width: 560px">
             <thead>
                 <tr>
                     <th class="crud">
-                        <a class="qry" href="#" onclick="autoresQry();"
+                        <a class="qry" href="#" onclick="profesoresQry();"
                            title="Lista de Autores"><span></span></a>
                     </th>
                     <td>Nombre Profesor</td>
@@ -35,7 +36,7 @@
                     <td>Fecha Inicio</td>
                     <td>Fecha Fin</td>
                     <th class="crud">
-                        <a class="ins" href="#" onclick="frasesIns();"
+                        <a class="ins" href="#" onclick="cursosIns();"
                            title="Nuevo Registro"><span></span></a>
                     </th>
                     <th class="crud">
@@ -52,7 +53,13 @@
                 <s:iterator value="list" var="r">
                     <tr>
                         <td colspan="2"><s:property value="#r[1]"/></td>
-                        <td colspan="8"><s:property value="#r[2]"/></td>
+                        <td><s:property value="#r[2]"/></td>
+                        <td><s:property value="#r[3]"/></td>
+                        <td><s:property value="#r[4]"/></td>
+                        <td><s:property value="#r[5]"/></td>
+                        <td><s:property value="#r[6]"/></td>
+                        <td><s:property value="#r[7]"/></td>
+                        <td colspan="2"><s:property value="#r[8]"/></td>
                         <th>
                             <input type="checkbox" name="idfrase_del" 
                                    value="${r[0]}"/>

@@ -1,19 +1,19 @@
 package dao;
 
-import dto.Autores;
+import dto.Profesores;
 import java.util.List;
 
 public interface DaoProfesores {
 
-    public List<Autores> autoresQry();
+    public List<Profesores> profesoresQry();
 
-    public String autoresIns(Autores autores);
+    public String profesoresIns(Profesores profesores);
 
-    public String autoresDel(List<Integer> ids);
+    public String profesoresDel(List<Integer> ids);
 
-    public Autores autoresGet(Integer idautor);
+    public Profesores profesoresGet(Integer idprofesores);
 
-    public String autoresUpd(Autores autores);
+    public String profesoresUpd(Profesores profesores);
     
     public String getMessage();
 }

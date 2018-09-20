@@ -53,7 +53,7 @@ public class CursosAction extends ActionSupport implements Validateable {
 
     public List<Profesores> getCboProfesores() {
         DaoProfesores daoProfesores = new DaoProfesoresImpl();
-        cboProfesores = daoProfesores.autoresQry();
+        cboProfesores = daoProfesores.profesoresQry();
         
         return cboProfesores;
     }
@@ -141,15 +141,15 @@ public class CursosAction extends ActionSupport implements Validateable {
     @Override
     public void validate() {
         if (cursos != null) {
-            if ((cursos.getIdautor() == null)) {
-                addFieldError("cursos.idautor",
+            if ((cursos.getIdprofesor()== null)) {
+                addFieldError("cursos.idprofesores",
                         "Seleccione Autor");
             }
 
-            if ((cursos.getFrase() == null)
-                    || (cursos.getFrase().trim().length() == 0)) {
+            if ((cursos.getNombrecursos()== null)
+                    || (cursos.getNombrecursos().trim().length() == 0)) {
                 addFieldError("cursos.frase",
-                        "ingrese Frase Célebre");
+                        "ingrese el Nombre del curso");
             }
         }
     }

@@ -1,7 +1,7 @@
 package dao.impl;
 
-import dao.DaoAutores;
-import dto.Autores;
+import dao.DaoProfesores;
+import dto.Profesores;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,7 +10,7 @@ import java.util.LinkedList;
 import java.util.List;
 import parainfo.sql.ConectaDb;
 
-public class DaoProfesoresImpl implements DaoAutores {
+public class DaoProfesoresImpl implements DaoProfesores {
 
     private final ConectaDb db;
     private final StringBuilder sql;
@@ -22,12 +22,15 @@ public class DaoProfesoresImpl implements DaoAutores {
     }
 
     @Override
-    public List<Autores> autoresQry() {
-        List<Autores> list = null;
+    public List<Profesores> profesoresQry() {
+        List<Profesores> list = null;
         sql.append("SELECT ")
-                .append("idautor,")
-                .append("autor ")
-                .append("FROM autores");
+                .append("idprofesores,")
+                .append("nombreprofesores,")
+                .append("carrera,")
+                .append("fechahoraingreso,")
+                .append("tipocontrato ")
+                .append("FROM profesores");
 
         try (Connection cn = db.getConnection();
                 PreparedStatement ps = 
@@ -36,11 +39,14 @@ public class DaoProfesoresImpl implements DaoAutores {
 
             list = new LinkedList<>();
             while (rs.next()) {
-                Autores a = new Autores();
+                Profesores a = new Profesores();
 
-                a.setIdautor(rs.getInt(1));
-                a.setAutor(rs.getString(2));
-
+                a.setIdprofesores(rs.getInt(1));
+                a.setNombreprofesores(rs.getString(2));
+                a.setCarrera(rs.getString(3));
+                a.setFechahoraingreso(rs.getTimestamp(4));
+                a.setTipocontrato(rs.getString(5));
+                
                 list.add(a);
             }
 
@@ -52,16 +58,22 @@ public class DaoProfesoresImpl implements DaoAutores {
     }
 
     @Override
-    public String autoresIns(Autores autores) {
-        sql.append("INSERT INTO autores(")
-                .append("autor")
+    public String profesoresIns(Profesores profesores) {
+        sql.append("INSERT INTO profesores(")
+                .append("nombreprofesores,")
+                .append("carrera,")
+                .append("fechahoraingreso,")
+                .append("tipocontrato")
                 .append(") VALUES(?)");
 
         try (Connection cn = db.getConnection();
                 PreparedStatement ps = 
                         cn.prepareStatement(sql.toString())) {
 
-            ps.setString(1, autores.getAutor());
+            ps.setString(1, profesores.getNombreprofesores());
+            ps.setString(2, profesores.getCarrera());
+            ps.setTimestamp(3, profesores.getFechahoraingreso());
+            ps.setString(4, profesores.getTipocontrato());
 
             int ctos = ps.executeUpdate();
             if (ctos == 0) {
@@ -76,8 +88,8 @@ public class DaoProfesoresImpl implements DaoAutores {
     }
 
     @Override
-    public String autoresDel(List<Integer> ids) {
-        sql.append("DELETE FROM autores WHERE idautor=?");
+    public String profesoresDel(List<Integer> ids) {
+        sql.append("DELETE FROM profesores WHERE idprofesores=?");
 
         try (Connection cn = db.getConnection();
                 PreparedStatement ps = 
@@ -113,30 +125,36 @@ public class DaoProfesoresImpl implements DaoAutores {
     }
 
     @Override
-    public Autores autoresGet(Integer idautor) {
-        Autores autores = null;
+    public Profesores profesoresGet(Integer idprofesores) {
+        Profesores profesores = null;
         sql.append("SELECT ")
-                .append("idautor,")
-                .append("autor ")
-                .append("FROM autores ")
-                .append("WHERE idautor=?");
+                .append("idprofesores,")
+                .append("nombreprofesores,")
+                .append("carrera,")
+                .append("fechahoraingreso,")
+                .append("tipocontrato ")
+                .append("FROM profesores ")
+                .append("WHERE idprofesores=?");
 
         try (Connection cn = db.getConnection();
                 PreparedStatement ps = 
                         cn.prepareStatement(sql.toString())) {
 
-            ps.setInt(1, idautor);
+            ps.setInt(1, idprofesores);
 
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
-                    autores = new Autores();
+                    profesores = new Profesores();
 
-                    autores.setIdautor(rs.getInt(1));
-                    autores.setAutor(rs.getString(2));
+                    profesores.setIdprofesores(rs.getInt(1));
+                    profesores.setNombreprofesores(rs.getString(2));
+                    profesores.setCarrera(rs.getString(3));
+                    profesores.setFechahoraingreso(rs.getTimestamp(4));
+                    profesores.setTipocontrato(rs.getString(5));
 
                 } else {
                     throw new SQLException("ID: " 
-                            + idautor + " no existe");
+                            + idprofesores + " no existe");
                 }
             }
 
@@ -144,21 +162,27 @@ public class DaoProfesoresImpl implements DaoAutores {
             message = e.getMessage();
         }
 
-        return autores;
+        return profesores;
     }
 
     @Override
-    public String autoresUpd(Autores autores) {
-        sql.append("UPDATE autores SET ")
-                .append("autor=? ")
-                .append("WHERE idautor=?");
+    public String profesoresUpd(Profesores profesores) {
+        sql.append("UPDATE profesores SET ")
+                .append("nombreprofesores=?,")
+                .append("carrera=?,")
+                .append("fechahoraingreso=?,")
+                .append("tipocontrato=? ")
+                .append("WHERE idprofesores=?");
 
         try (Connection cn = db.getConnection();
                 PreparedStatement ps = 
                         cn.prepareStatement(sql.toString())) {
 
-            ps.setString(1, autores.getAutor());
-            ps.setInt(2, autores.getIdautor());
+            ps.setString(1, profesores.getNombreprofesores());
+            ps.setString(2, profesores.getCarrera());
+            ps.setTimestamp(3, profesores.getFechahoraingreso());
+            ps.setString(4,profesores.getTipocontrato());
+            ps.setInt(2, profesores.getIdprofesores());
 
             int ctos = ps.executeUpdate();
             if (ctos == 0) {

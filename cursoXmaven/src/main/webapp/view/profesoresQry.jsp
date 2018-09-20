@@ -5,7 +5,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>parainformaticos.com</title>
+        <title>cibertec-extencion.com</title>
         <link href="jq/jquery-ui.min.css" type="text/css" rel="stylesheet"/>
         <link href="css/main.css" type="text/css" rel="stylesheet"/>
         <link href="parainfo/a.css" type="text/css" rel="stylesheet"/>
@@ -56,7 +56,7 @@
         </table>
 
         <p style="text-align: center">
-            <a class="parainfo" href="frasesQry">Home</a>
+            <a class="parainfo" href="cursosQry">Home</a>
         </p>
 
         <%-- mensajes del servidor --%>

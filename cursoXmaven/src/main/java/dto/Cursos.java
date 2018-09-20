@@ -5,33 +5,33 @@ import java.sql.Time;
 
 public class Cursos {
     
-    private Integer idcurso;
-    private String nombrecurso;
+    private Integer idcursos;
+    private String nombrecursos;
     private String descripcion;
     private Date fechainicio;
     private Date fechafin;
     private Time horaInicio;
     private String tipo;
     private Integer horas;
-    private Integer idprofesor;
+    private Integer idprofesores;
 
     public Cursos() {
     }
 
-    public Integer getIdcurso() {
-        return idcurso;
+    public Integer getIdcursos() {
+        return idcursos;
     }
 
-    public void setIdcurso(Integer idcurso) {
-        this.idcurso = idcurso;
+    public void setIdcursos(Integer idcursos) {
+        this.idcursos = idcursos;
     }
 
-    public String getNombrecurso() {
-        return nombrecurso;
+    public String getNombrecursos() {
+        return nombrecursos;
     }
 
-    public void setNombrecurso(String nombrecurso) {
-        this.nombrecurso = nombrecurso;
+    public void setNombrecursos(String nombrecursos) {
+        this.nombrecursos = nombrecursos;
     }
 
     public String getDescripcion() {
@@ -83,11 +83,11 @@ public class Cursos {
     }
 
     public Integer getIdprofesor() {
-        return idprofesor;
+        return idprofesores;
     }
 
-    public void setIdprofesor(Integer idprofesor) {
-        this.idprofesor = idprofesor;
+    public void setIdprofesor(Integer idprofesores) {
+        this.idprofesores = idprofesores;
     }
     
     

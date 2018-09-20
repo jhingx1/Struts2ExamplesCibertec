@@ -4,8 +4,8 @@ import java.sql.Timestamp;
 
 public class Profesores {
 
-    private Integer idprofesor;
-    private String nombreprofesor;
+    private Integer idprofesores;
+    private String nombreprofesores;
     private String carrera;
     private Timestamp fechahoraingreso;
     private String tipocontrato;
@@ -13,20 +13,20 @@ public class Profesores {
     public Profesores() {
     }
 
-    public Integer getIdprofesor() {
-        return idprofesor;
+    public Integer getIdprofesores() {
+        return idprofesores;
     }
 
-    public void setIdprofesor(Integer idprofesor) {
-        this.idprofesor = idprofesor;
+    public void setIdprofesores(Integer idprofesores) {
+        this.idprofesores = idprofesores;
     }
 
-    public String getNombreprofesor() {
-        return nombreprofesor;
+    public String getNombreprofesores() {
+        return nombreprofesores;
     }
 
-    public void setNombreprofesor(String nombreprofesor) {
-        this.nombreprofesor = nombreprofesor;
+    public void setNombreprofesores(String nombreprofesores) {
+        this.nombreprofesores = nombreprofesores;
     }
 
     public String getCarrera() {

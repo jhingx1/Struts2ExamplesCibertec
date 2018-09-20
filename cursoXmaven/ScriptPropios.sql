@@ -1,5 +1,5 @@
-select * from profesor;
-select * from curso;
+select * from profesores;
+select * from cursos;
 
 SELECT frases.idfrase,autores.autor,frases.frase
 FROM frases
@@ -9,12 +9,16 @@ ORDER BY autores.autor;
 
 SELECT idautor,autor FROM autores;
 
-######Script para listar curso.
-######Listar los cursos-tabla principal
-SELECT c.idcurso,p.nombreprofesor,p.fechahoraingreso,p.carrera,c.nombrecurso,c.descripcion,c.horas
-FROM curso c
-INNER JOIN profesor p
-ON  c.idcurso = p.idprofesor
-ORDER BY c.nombrecurso
+######Script para listar cursos.
+######Listar los cursos-tabla principal ,p.fechahoraingreso
+SELECT c.idcursos,p.nombreprofesores,p.carrera,c.nombrecursos,c.descripcion,c.horaInicio,c.horas,c.fechainicio,c.fechafin
+FROM cursos c
+INNER JOIN profesores p
+ON  c.idprofesores = p.idprofesores
+ORDER BY c.nombrecursos;
 
 ######Tabla secundaria
+SELECT idprofesores,nombreprofesores,carrera,fechahoraingreso,tipocontrato FROM profesores;
+
+DROP TABLE IF EXISTS cursos;
+DROP TABLE IF EXISTS profesores;

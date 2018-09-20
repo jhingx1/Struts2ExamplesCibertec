@@ -40,41 +40,13 @@
             <result name="error">/view/autoresUpd.jsp</result>  
         </action>
         
-        <!-- frases -->
-        <action name="frasesQry" class="web.action.FrasesAction">
-            <result name="success">/view/frasesQry.jsp</result>
+        
+        
+        <!-- Cursos -->
+        <action name="cursosQry" class="web.action.FrasesAction">
+            <result name="success">/view/cursosQry.jsp</result>
         </action>
         
-        <action name="frasesInsForm" class="web.action.FrasesAction">
-            <result name="success">/view/frasesIns.jsp</result>
-        </action>
-        
-        <action name="frasesIns" class="web.action.FrasesAction"
-                method="frasesIns">
-            <result name="input">/view/frasesIns.jsp</result>
-            <result name="success" type="redirect">frasesQry</result> 
-            <result name="error">/view/frasesIns.jsp</result>  
-        </action>
-        
-        <action name="frasesDel" class="web.action.FrasesAction"
-                method="frasesDel">
-            <result name="success" type="redirect">frasesQry</result> 
-            <result name="error">/view/frasesQry.jsp</result>  
-        </action>
-        
-        <action name="frasesGet" class="web.action.FrasesAction"
-                method="frasesGet">
-            <result name="success">/view/frasesUpd.jsp</result> 
-            <result name="error">/view/frasesQry.jsp</result>  
-        </action>
-        
-        <action name="frasesUpd" class="web.action.FrasesAction"
-                method="frasesUpd">
-            <result name="input">/view/frasesUpd.jsp</result>
-            <result name="success" type="redirect">frasesQry</result> 
-            <result name="error">/view/frasesUpd.jsp</result>  
-        </action>
-
     </package>
 </struts>
 

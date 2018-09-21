@@ -27,6 +27,19 @@
             <result name="error">/view/profesoresQry.jsp</result>  
         </action>
         
+        <action name="profesorGet" class="web.action.ProfesoresAction"
+                method="profesoresGet">
+            <result name="success">/view/profesoresUpd.jsp</result> 
+            <result name="error">/view/profesoresQry.jsp</result>  
+        </action>
+        
+        <action name="profesoresUpd" class="web.action.ProfesoresAction"
+                method="profesoresUpd">
+            <result name="input">/view/profesoresUpd.jsp</result>
+            <result name="success" type="redirect">profesoresQry</result> 
+            <result name="error">/view/profesoresUpd.jsp</result>  
+        </action>
+        
         <!-- Cursos -->
         <action name="cursosQry" class="web.action.CursosAction">
             <result name="success">/view/cursosQry.jsp</result>

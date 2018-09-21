@@ -26,7 +26,7 @@
                 cssStyle="margin: auto;display: table" cssClass="parainfo">
 
             <fieldset>
-                <legend>Nuevo Autor</legend>
+                <legend>Nuevo Profesor</legend>
 
                 <table class="tabla">
                     <tr>

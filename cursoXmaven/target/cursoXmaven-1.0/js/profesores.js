@@ -97,12 +97,12 @@ function profesoresDel() {
     }
 }
 
-function autoresUpd() {
-    var id = $("input[name='idautor_upd']:checked").val();
+function profesoresUpd() {
+    var id = $("input[name='idprofesores_upd']:checked").val();
 
     if (isNaN(id)) {
         message("Advertencia", "Seleccione Fila para Actualizar Datos");
     } else {
-        window.location = "autoresGet?idautor=" + id;
+        window.location = "profesorGet?idprofesores=" + id;
     }
 }

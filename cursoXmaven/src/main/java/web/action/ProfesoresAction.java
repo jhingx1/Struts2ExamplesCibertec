@@ -84,13 +84,13 @@ public class ProfesoresAction
 
 	public String profesoresGet() {
 		HttpServletRequest request = ServletActionContext.getRequest();
-		Integer idautor = 
-				DeString.aInteger(request.getParameter("idautor"));
+		Integer idprofesores = 
+				DeString.aInteger(request.getParameter("idprofesores"));
 
 		String result = null;
-		if (idautor != null) {
+		if (idprofesores != null) {
 			DaoProfesores daoProfesores = new DaoProfesoresImpl();
-			profesores = daoProfesores.profesoresGet(idautor);
+			profesores = daoProfesores.profesoresGet(idprofesores);
 
 			if (profesores == null) {
 				result = daoProfesores.getMessage();

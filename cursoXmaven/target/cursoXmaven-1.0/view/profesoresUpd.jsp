@@ -22,15 +22,16 @@
         <script src="js/profesores.js" type="text/javascript"></script>
     </head>
     <body>
-        <s:form action="profesoresIns" theme="simple" method="post" 
+        <s:form action="profesoresUpd" theme="simple" method="post" 
                 cssStyle="margin: auto;display: table" cssClass="parainfo">
+            <s:hidden name="profesores.idprofesores"/>
 
             <fieldset>
-                <legend>Nuevo Profesor</legend>
+                <legend>Actualizar Autor</legend>
 
                 <table class="tabla">
                     <tr>
-                        <td>Nombre Profesores</td>                                                
+                        <td>Nombre Profesor</td>
                         <td>
                             <s:textfield name="profesores.nombreprofesores" 
                                          maxlength="200" 
@@ -61,7 +62,7 @@
                                          cssStyle="width:300px"/>
                         </td>                        
                     </tr>
-                    
+
                     <tr>
                         <td colspan="2">&nbsp;</td>
                     </tr>
@@ -74,14 +75,14 @@
             </fieldset>
         </s:form>
 
-        <%-- para errores en INS --%>
+        <%-- para errores en UPD --%>
         <div class="msg_error errorMessage ui-state-highlight ui-corner-all">
             ${msg} <%-- para errores por DAO --%>
 
             <ul> <%-- para errores por validacion --%>
-                <s:if test="fieldErrors.get('autores.autor').size() > 0">
-                    <li><s:property value="fieldErrors.get('autores.autor').get(0)" /></li>
-                </s:if>
+                <s:if test="fieldErrors.get('profesores.autor').size() > 0">
+                    <li><s:property value="fieldErrors.get('profesores.autor').get(0)" /></li>
+                    </s:if>
             </ul>
         </div>
 

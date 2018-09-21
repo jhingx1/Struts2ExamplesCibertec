@@ -182,7 +182,7 @@ public class DaoProfesoresImpl implements DaoProfesores {
             ps.setString(2, profesores.getCarrera());
             ps.setTimestamp(3, profesores.getFechahoraingreso());
             ps.setString(4,profesores.getTipocontrato());
-            ps.setInt(2, profesores.getIdprofesores());
+            ps.setInt(5, profesores.getIdprofesores());
 
             int ctos = ps.executeUpdate();
             if (ctos == 0) {

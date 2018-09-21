@@ -49,12 +49,12 @@
                         <td><s:property value="fechahoraingreso"/></td>
                         <td colspan="2"><s:property value="tipocontrato"/></td>
                         <th>
-                            <input type="checkbox" name="idautor_del" 
-                                   value="${idautor}"/>
+                            <input type="checkbox" name="idprofesores_del" 
+                                   value="${idprofesores}"/>
                         </th>
                         <th>
-                            <input type="radio" name="idautor_upd" 
-                                   value="${idautor}"/>
+                            <input type="radio" name="idprofesores_upd" 
+                                   value="${idprofesores}"/>
                         </th>
                     </tr>
                 </s:iterator>

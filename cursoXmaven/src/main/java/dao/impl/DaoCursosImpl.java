@@ -104,12 +104,12 @@ public class DaoCursosImpl implements DaoCursos {
             
             ps.setString(1,cursos.getNombrecursos());
             ps.setString(2,cursos.getDescripcion());
-            ps.setDate(3, cursos.getFechainicio());
-            ps.setDate(4, cursos.getFechafin());
-            ps.setTime(5, cursos.getHoraInicio());
-            ps.setString(6, cursos.getTipo());
-            ps.setInt(7, cursos.getHoras());
-            ps.setInt(8, cursos.getIdprofesor());
+            ps.setDate(3,cursos.getFechainicio());
+            ps.setDate(4,cursos.getFechafin());
+            ps.setTime(5,cursos.getHoraInicio());
+            ps.setString(6,cursos.getTipo());
+            ps.setInt(7,cursos.getHoras());
+            ps.setInt(8,cursos.getIdprofesor());
             
             
 

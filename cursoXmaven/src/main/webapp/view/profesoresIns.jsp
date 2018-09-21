@@ -22,7 +22,7 @@
         <script src="js/profesores.js" type="text/javascript"></script>
     </head>
     <body>
-        <s:form action="autoresIns" theme="simple" method="post" 
+        <s:form action="profesoresIns" theme="simple" method="post" 
                 cssStyle="margin: auto;display: table" cssClass="parainfo">
 
             <fieldset>
@@ -32,7 +32,7 @@
                     <tr>
                         <td>Nombre Profesores</td>                                                
                         <td>
-                            <s:textfield name="autores.autor" 
+                            <s:textfield name="profesores.nombreprofesores" 
                                          maxlength="200" 
                                          cssStyle="width:300px"/>
                         </td>
@@ -40,7 +40,7 @@
                     <tr>
                         <td>Carrera</td>
                         <td>
-                            <s:textfield name="cursos.nombrecursos" 
+                            <s:textfield name="profesores.carrera" 
                                          maxlength="200" 
                                          cssStyle="width:300px"/>
                         </td>                        
@@ -48,7 +48,7 @@
                     <tr>
                         <td>Fecha Hora Ingreso</td>
                         <td>
-                            <s:textfield name="cursos.nombrecursos" cssClass="fechahora"
+                            <s:textfield name="profesores.fechahoraingreso" cssClass="fechahora"
                                          readonly="readonly"
                                          cssStyle="width:180px;margin-right:4px"/>
                         </td>                        
@@ -56,7 +56,7 @@
                     <tr>
                         <td>Tipo Contrato</td>
                         <td>
-                            <s:textfield name="cursos.nombrecursos" 
+                            <s:textfield name="profesores.tipocontrato" 
                                          maxlength="200" 
                                          cssStyle="width:300px"/>
                         </td>                        

@@ -64,7 +64,7 @@ public class DaoProfesoresImpl implements DaoProfesores {
                 .append("carrera,")
                 .append("fechahoraingreso,")
                 .append("tipocontrato")
-                .append(") VALUES(?)");
+                .append(") VALUES(?,?,?,?)");
 
         try (Connection cn = db.getConnection();
                 PreparedStatement ps = 

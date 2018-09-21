@@ -3,12 +3,9 @@ package web.action;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-
 import org.apache.struts2.ServletActionContext;
-
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.Validateable;
-
 import dao.DaoProfesores;
 import dao.impl.DaoProfesoresImpl;
 import dto.Profesores;
@@ -65,10 +62,8 @@ public class ProfesoresAction
 	}
 
 	public String profesoresDel() {
-		HttpServletRequest request = 
-				ServletActionContext.getRequest();
-		List<Integer> ids = 
-				DeString.ids(request.getParameter("ids"));
+		HttpServletRequest request = ServletActionContext.getRequest();
+		List<Integer> ids = DeString.ids(request.getParameter("ids"));
 
 		String result;
 		if (ids == null) {

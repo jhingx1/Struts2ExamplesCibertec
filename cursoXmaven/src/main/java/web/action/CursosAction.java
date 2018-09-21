@@ -60,6 +60,7 @@ public class CursosAction extends ActionSupport implements Validateable {
 
     // gestiona CRUD
     public String cursosIns() {
+        
     	DaoCursos daoCursos = new DaoCursosImpl();
         String result = daoCursos.cursosIns(cursos);
 

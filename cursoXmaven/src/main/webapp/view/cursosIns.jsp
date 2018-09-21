@@ -46,55 +46,56 @@
                                          cssStyle="width:300px"/>
                         </td>
                     </tr>
-                    <td>Fecha Inicio</td>
+
                     <tr>
-                    <td>
-                        <s:textfield name="cursos.fechainicio" cssClass="fecha" 
-                                     readonly="readonly"
-                                     cssStyle="width:180px;margin-right:4px"/>
-                    </td>
+                        <td>Fecha Inicio</td>
+                        <td>
+                            <s:textfield name="cursos.fechainicio" cssClass="fecha" 
+                                         readonly="readonly"
+                                         cssStyle="width:180px;margin-right:4px"/>
+                        </td>
                     </tr>
                     <tr>
-                    <td>Fecha Fin</td>
-                    <td>
-                        <s:textfield name="cursos.fechafin" cssClass="fecha"
-                                     readonly="readonly"
-                                     cssStyle="width:180px;margin-right:4px"/>
-                    </td>
+                        <td>Fecha Fin</td>
+                        <td>
+                            <s:textfield name="cursos.fechafin" cssClass="fecha"
+                                         readonly="readonly"
+                                         cssStyle="width:180px;margin-right:4px"/>
+                        </td>
                     </tr>
                     <tr>
-                    <td>Hora Inicio</td>
-                    <td>
-                        <s:textfield name="cursos.horaInicio" cssClass="hora"
-                                     readonly="readonly"
-                                     cssStyle="width:180px;margin-right:4px"/>
-                    </td>
+                        <td>Hora Inicio</td>
+                        <td>
+                            <s:textfield name="cursos.horaInicio" cssClass="hora"
+                                         readonly="readonly"
+                                         cssStyle="width:180px;margin-right:4px"/>
+                        </td>
                     </tr>
                     <tr>
-                    <td>Tipo</td>
-                    <td>
-                        <s:textfield name="cursos.tipo" 
-                                     maxlength="200" 
-                                     cssStyle="width:300px"/>
-                    </td>
+                        <td>Tipo</td>
+                        <td>
+                            <s:textfield name="cursos.tipo" 
+                                         maxlength="200" 
+                                         cssStyle="width:300px"/>
+                        </td>
                     </tr>
                     <tr>
-                    <td>Horas</td>
-                    <td>
-                        <s:textfield name="cursos.horas" 
-                                     maxlength="200" 
-                                     cssStyle="width:300px"/>
-                    </td>
+                        <td>Horas</td>
+                        <td>
+                            <s:textfield name="cursos.horas" 
+                                         maxlength="200" 
+                                         cssStyle="width:300px"/>
+                        </td>
                     </tr>
                     <tr>
-                    <td>Profesor</td>
-                    <td>
-                        <s:select name="cursos.idprofesores" list="cboProfesores"
-                                  listKey="idprofesores" listValue="nombreprofesores"
-                                  cssStyle="width:310px"/>
-                    </td>
+                        <td>Profesor</td>
+                        <td>
+                            <s:select name="cursos.idprofesores" list="cboProfesores"
+                                      listKey="idprofesores" listValue="nombreprofesores"
+                                      cssStyle="width:310px"/>
+                        </td>
                     </tr>                        
-                    
+
                     <tr>
                         <td colspan="2">&nbsp;</td>
                     </tr>

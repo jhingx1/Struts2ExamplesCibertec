@@ -14,7 +14,18 @@
             <result name="success">/view/profesoresIns.jsp</result>
         </action>
         
+        <action name="profesoresIns" class="web.action.ProfesoresAction"
+                method="profesoresIns">
+            <result name="input">/view/profesoresIns.jsp</result>
+            <result name="success" type="redirect">profesoresQry</result> 
+            <result name="error">/view/profesoresIns.jsp</result>  
+        </action>
         
+        <action name="profesoresDel" class="web.action.ProfesoresAction"
+                method="profesoresDel">
+            <result name="success" type="redirect">profesoresQry</result> 
+            <result name="error">/view/profesoresQry.jsp</result>  
+        </action>
         
         <!-- Cursos -->
         <action name="cursosQry" class="web.action.CursosAction">
@@ -26,7 +37,7 @@
         <action name="cursosIns" class="web.action.CursosAction"
                 method="cursosIns">
             <result name="input">/view/cursosIns.jsp</result>
-            <result name="success" type="redirect">cursosIns</result> 
+            <result name="success" type="redirect">cursosQry</result> 
             <result name="error">/view/cursosIns.jsp</result>  
         </action>
         

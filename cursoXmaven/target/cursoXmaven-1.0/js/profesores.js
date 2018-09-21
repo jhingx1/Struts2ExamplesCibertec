@@ -69,10 +69,10 @@ function profesoresIns() {
     window.location = "profesoresInsForm";
 }
 
-function autoresDel() {
+function profesoresDel() {
     var ids = [];
 
-    $("input[name='idautor_del']:checked").each(function () {
+    $("input[name='idprofesores_del']:checked").each(function () {
         ids.push($(this).val());
     });
 
@@ -90,7 +90,7 @@ function autoresDel() {
                 },
                 "Si": function () {
                     $(this).dialog("close");
-                    window.location = "autoresDel?ids=" + ids.toString();
+                    window.location = "profesoresDel?ids=" + ids.toString();
                 }
             }
         });

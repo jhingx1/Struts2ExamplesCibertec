@@ -19,7 +19,6 @@
         <script src="parainfo/table.js" type="text/javascript"></script>
         <script src="parainfo/form.js" type="text/javascript"></script>
 
-
         <script src="js/cursos.js" type="text/javascript"></script>
     </head>
     <body>
@@ -33,11 +32,12 @@
                     <tr>
                         <td>Nombre Curso</td>
                         <td>
-                            <s:textfield name="cursos.nombrecursos" 
-                                         maxlength="200" 
-                                         cssStyle="width:300px"/>
-                        </td>                        
+                        <s:textfield name="cursos.nombrecursos" 
+                                     maxlength="200" 
+                                     cssStyle="width:300px"/>
+                        </td>
                     </tr>
+
                     <tr>
                         <td>Descripcion</td>
                         <td>
@@ -94,7 +94,7 @@
                                       listKey="idprofesores" listValue="nombreprofesores"
                                       cssStyle="width:310px"/>
                         </td>
-                    </tr>                        
+                    </tr> 
 
                     <tr>
                         <td colspan="2">&nbsp;</td>
@@ -113,8 +113,8 @@
             ${msg} <%-- para errores por DAO --%>
 
             <ul> <%-- para errores por validacion --%>
-                <s:if test="fieldErrors.get('cursos.autor').size() > 0">
-                    <li><s:property value="fieldErrors.get('cursos.autor').get(0)" /></li>
+                <s:if test="fieldErrors.get('cursos.nombreprofesores').size() > 0">
+                    <li><s:property value="fieldErrors.get('cursos.nombreprofesores').get(0)" /></li>
                     </s:if>
             </ul>
         </div>

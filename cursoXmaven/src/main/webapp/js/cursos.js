@@ -70,15 +70,14 @@ function profesoresQry() {
     window.location = "profesoresQry";
 }
 
-function cursosIns() {
-    //window.location = "frasesInsForm";
+function cursosIns() {    
     window.location = "cursosInsForm";
 }
 
-function frasesDel() {
+function cursosDel() {
     var ids = [];
 
-    $("input[name='idfrase_del']:checked").each(function () {
+    $("input[name='idcursos_del']:checked").each(function () {
         ids.push($(this).val());
     });
 
@@ -96,20 +95,20 @@ function frasesDel() {
                 },
                 "Si": function () {
                     $(this).dialog("close");
-                    window.location = "frasesDel?ids=" + ids.toString();
+                    window.location = "cursosDel?ids=" + ids.toString();
                 }
             }
         });
     }
 }
 
-function frasesUpd() {
-    var id = $("input[name='idfrase_upd']:checked").val();
+function cursosUpd() {
+    var id = $("input[name='idcursos_upd']:checked").val();
 
     if (isNaN(id)) {
         message("Advertencia", "Seleccione Fila para Actualizar Datos");
     } else {
-        window.location = "frasesGet?idfrase=" + id;
+        window.location = "cursosGet?idcursos=" + id;
     }
 }
 

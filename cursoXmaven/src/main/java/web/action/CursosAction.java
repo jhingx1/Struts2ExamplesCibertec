@@ -1,14 +1,10 @@
 package web.action;
 
 import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
-
 import org.apache.struts2.ServletActionContext;
-
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.Validateable;
-
 import dao.DaoProfesores;
 import dao.DaoCursos;
 import dao.impl.DaoProfesoresImpl;
@@ -58,7 +54,7 @@ public class CursosAction extends ActionSupport implements Validateable {
         return cboProfesores;
     }
 
-    // gestiona CRUD
+    // gestiona CRUD - C
     public String cursosIns() {
         
     	DaoCursos daoCursos = new DaoCursosImpl();
@@ -100,13 +96,13 @@ public class CursosAction extends ActionSupport implements Validateable {
     public String cursosGet() {
         HttpServletRequest request = 
         		ServletActionContext.getRequest();
-        Integer idfrase
-                = DeString.aInteger(request.getParameter("idfrase"));
+        Integer idcursos
+                = DeString.aInteger(request.getParameter("idcursos"));
 
         String result = null;
-        if (idfrase != null) {
+        if (idcursos != null) {
             DaoCursos daoCursos = new DaoCursosImpl();
-            cursos = daoCursos.cursosGet(idfrase);
+            cursos = daoCursos.cursosGet(idcursos);
 
             if (cursos == null) {
                 result = daoCursos.getMessage();
@@ -142,14 +138,14 @@ public class CursosAction extends ActionSupport implements Validateable {
     @Override
     public void validate() {
         if (cursos != null) {
-            if ((cursos.getIdprofesor()== null)) {
+            if ((cursos.getIdprofesores()== null)) {
                 addFieldError("cursos.idprofesores",
                         "Seleccione Autor");
             }
 
             if ((cursos.getNombrecursos()== null)
                     || (cursos.getNombrecursos().trim().length() == 0)) {
-                addFieldError("cursos.frase",
+                addFieldError("cursos.cursos",
                         "ingrese el Nombre del curso");
             }
         }

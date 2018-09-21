@@ -11,7 +11,7 @@ public interface DaoCursos {
 
     public String cursosDel(List<Integer> ids);
 
-    public Cursos cursosGet(Integer idfrase);
+    public Cursos cursosGet(Integer idcursos);
 
     public String cursosUpd(Cursos cursos);
     

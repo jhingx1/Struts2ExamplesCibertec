@@ -70,15 +70,7 @@ public class DaoCursosImpl implements DaoCursos {
 
     @Override
     public String cursosIns(Cursos cursos) {        
-        //Solo inserta codigo
-        /*
-        sql.append("INSERT INTO cursos(")
-                .append("idautor,")
-                .append("cursos")
-                .append(") VALUES(?,?)");
-        
-        */
-        //,,,,,,,
+        //Solo inserta codigo        
         sql.append("INSERT INTO cursos(")
                 .append("nombrecursos,")
                 .append("descripcion,")
@@ -94,25 +86,16 @@ public class DaoCursosImpl implements DaoCursos {
             
             Connection cn = db.getConnection();
             PreparedStatement ps = cn.prepareStatement(sql.toString())) {
-            
-            /*
-            ps.setInt(1, cursos.getIdautor());
-            ps.setString(2, cursos.getFrase());
-            ps.setDate(1, tiempos.getFecha());
-            ps.setTime(2, tiempos.getHora());
-            */
-            
+                    
             ps.setString(1,cursos.getNombrecursos());
             ps.setString(2,cursos.getDescripcion());
             ps.setDate(3,cursos.getFechainicio());
             ps.setDate(4,cursos.getFechafin());
             ps.setTime(5,cursos.getHoraInicio());
             ps.setString(6,cursos.getTipo());
-            ps.setInt(7,cursos.getHoras());
-            ps.setInt(8,cursos.getIdprofesor());
+            ps.setString(7,cursos.getHoras());
+            ps.setInt(8,cursos.getIdprofesores());
             
-            
-
             int ctos = ps.executeUpdate();
             if (ctos == 0) {
                 throw new SQLException("0 filas afectadas");
@@ -197,8 +180,8 @@ public class DaoCursosImpl implements DaoCursos {
                     cursos.setFechainicio(rs.getDate(5));
                     cursos.setHoraInicio(rs.getTime(6));
                     cursos.setTipo(rs.getString(7));
-                    cursos.setHoras(rs.getInt(8));
-                    cursos.setIdprofesor(rs.getInt(9));
+                    cursos.setHoras(rs.getString(8));
+                    cursos.setIdprofesores(rs.getInt(9));
                     
                 } else {
                     throw new SQLException("ID: " 
@@ -215,14 +198,15 @@ public class DaoCursosImpl implements DaoCursos {
     //Para actualizar
     @Override
     public String cursosUpd(Cursos cursos) {
+        
         sql.append("UPDATE cursos SET ")
                 .append("nombrecursos=?,")
-                .append("descripcion=? ")
-                .append("fechainicio=? ")
-                .append("fechafin=? ")
-                .append("horaInicio=? ")
-                .append("tipo=? ")
-                .append("horas=? ")
+                .append("descripcion=?,")
+                .append("fechainicio=?,")
+                .append("fechafin=?,")
+                .append("horaInicio=?,")
+                .append("tipo=?,")
+                .append("horas=?,")
                 .append("idprofesores=? ")                
                 .append("WHERE idcursos=?");
 
@@ -236,8 +220,8 @@ public class DaoCursosImpl implements DaoCursos {
             ps.setDate(4, cursos.getFechafin());
             ps.setTime(5, cursos.getHoraInicio());
             ps.setString(6, cursos.getTipo());
-            ps.setInt(7, cursos.getHoras());
-            ps.setInt(8, cursos.getIdprofesor());
+            ps.setString(7, cursos.getHoras());
+            ps.setInt(8, cursos.getIdprofesores());
             ps.setInt(9, cursos.getIdcursos());
 
             int ctos = ps.executeUpdate();

@@ -27,7 +27,7 @@
             <s:hidden name="profesores.idprofesores"/>
 
             <fieldset>
-                <legend>Actualizar Autor</legend>
+                <legend>Actualizar Profesor</legend>
 
                 <table class="tabla">
                     <tr>

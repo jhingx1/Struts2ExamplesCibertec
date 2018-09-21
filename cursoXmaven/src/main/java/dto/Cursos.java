@@ -12,7 +12,7 @@ public class Cursos {
     private Date fechafin;
     private Time horaInicio;
     private String tipo;
-    private Integer horas;
+    private String horas;
     private Integer idprofesores;
 
     public Cursos() {
@@ -74,22 +74,20 @@ public class Cursos {
         this.tipo = tipo;
     }
 
-    public Integer getHoras() {
+    public String getHoras() {
         return horas;
     }
 
-    public void setHoras(Integer horas) {
+    public void setHoras(String horas) {
         this.horas = horas;
     }
 
-    public Integer getIdprofesor() {
+    public Integer getIdprofesores() {
         return idprofesores;
     }
 
-    public void setIdprofesor(Integer idprofesores) {
+    public void setIdprofesores(Integer idprofesores) {
         this.idprofesores = idprofesores;
     }
-    
-    
-    
+
 }

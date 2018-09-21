@@ -40,18 +40,37 @@
             <result name="error">/view/profesoresUpd.jsp</result>  
         </action>
         
-        <!-- Cursos -->
+        <!--- Cursos-->
         <action name="cursosQry" class="web.action.CursosAction">
             <result name="success">/view/cursosQry.jsp</result>
         </action>
         <action name="cursosInsForm" class="web.action.CursosAction">
             <result name="success">/view/cursosIns.jsp</result>
         </action>
-        <action name="cursosIns" class="web.action.CursosAction"
-                method="cursosIns">
-            <result name="input">/view/cursosIns.jsp</result>
+        
+        <action name="cursosIns" class="web.action.CursosAction" method="cursosIns">
+                <result name="input">/view/cursosIns.jsp</result>
+                <result name="success" type="redirect">cursosQry</result>
+                <result name="error">/view/cursosIns.jsp</result>    
+        </action>
+
+        <action name="cursosDel" class="web.action.CursosAction"
+                method="cursosDel">
             <result name="success" type="redirect">cursosQry</result> 
-            <result name="error">/view/cursosIns.jsp</result>  
+            <result name="error">/view/cursosQry.jsp</result>  
+        </action>
+        
+        <action name="cursosGet" class="web.action.CursosAction"
+                method="cursosGet">
+            <result name="success">/view/cursosUpd.jsp</result> 
+            <result name="error">/view/cursosQry.jsp</result>  
+        </action>
+        
+        <action name="cursosUpd" class="web.action.CursosAction"
+                method="cursosUpd">
+            <result name="input">/view/cursosUpd.jsp</result>
+            <result name="success" type="redirect">cursosQry</result> 
+            <result name="error">/view/cursosUpd.jsp</result>  
         </action>
         
         

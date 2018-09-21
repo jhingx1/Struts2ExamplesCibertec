@@ -16,7 +16,7 @@
         <script src="parainfo/table.js" type="text/javascript"></script>
         <script src="parainfo/message.js" type="text/javascript"></script>
 
-        <!-- <script src="js/frases.js" type="text/javascript"></script> -->
+        <!-- <script src="js/cursos.js" type="text/javascript"></script> -->
         <script src="js/cursos.js" type="text/javascript"></script>
     </head>
     <body>
@@ -40,11 +40,11 @@
                            title="Nuevo Registro"><span></span></a>
                     </th>
                     <th class="crud">
-                        <a class="del" href="#" onclick="frasesDel();"
+                        <a class="del" href="#" onclick="cursosDel();"
                            title="Retirar Registros"><span></span></a>
                     </th>
                     <th class="crud">
-                        <a class="upd" href="#" onclick="frasesUpd();"
+                        <a class="upd" href="#" onclick="cursosUpd();"
                            title="Actualizar Registro"><span></span></a>
                     </th>
                 </tr>
@@ -61,11 +61,11 @@
                         <td><s:property value="#r[7]"/></td>
                         <td colspan="2"><s:property value="#r[8]"/></td>
                         <th>
-                            <input type="checkbox" name="idfrase_del" 
+                            <input type="checkbox" name="idcursos_del" 
                                    value="${r[0]}"/>
                         </th>
                         <th>
-                            <input type="radio" name="idfrase_upd" 
+                            <input type="radio" name="idcursos_upd" 
                                    value="${r[0]}"/>
                         </th>
                     </tr>

@@ -2,10 +2,71 @@ $(function () {
     if ($.trim($(".msg_error").text()) !== "") {
         $(".msg_error").css("visibility", "visible");
     }
+    
+    // datepicker
+    $(".fecha").datepicker({
+        showOn: "button",
+        buttonImage: "images/calendar.gif",
+        buttonImageOnly: true
+    });
+    
+    $(".fecha").datepicker('setDate', new Date());
+    
+    $.timepicker.regional['es'] = {
+        timeOnlyTitle: 'Seleccione Hora',
+        timeText: 'Selección',
+        hourText: 'Hora',
+        minuteText: 'Minutos',
+        secondText: 'Segundos',
+        currentText: 'Ahora',
+        closeText: 'Aceptar',
+        ampm: false
+    };
+    
+     $.timepicker.setDefaults($.timepicker.regional['es']);
+    $(".fechahora").datetimepicker({
+        showOn: 'button',
+        buttonImage: 'images/calendar.gif',
+        buttonImageOnly: true,
+        showAnim: 'slideDown',
+        showSecond: true,
+        yearRange: '2012:2018',
+        changeMonth: true,
+        changeYear: true,
+        timeFormat: 'hh:mm:ss tt',
+        hour: 8,
+        minute: 30,
+        second: 30,
+        hourMin: 1,
+        hourMax: 23,
+        stepHour: 1,
+        stepMinute: 1,
+        stepSecond: 1,
+        addSliderAccess: true, 
+        sliderAccessArgs: {
+            touchonly: false
+        }
+    });
+    
+    $(".fechahora").datetimepicker('setDate', new Date());
+    //
+    
+    $(".hora").timepicker({
+        showOn: 'button',
+        buttonImage: 'images/clock.png',
+        buttonImageOnly: true,
+        showAnim: 'slideDown',
+        showSecond: true,
+        controlType: 'select',
+	timeFormat: 'hh:mm:ss tt'
+    });
+    
+    $(".hora").timepicker('setDate', new Date());
+    
 });
 
-function autoresIns() {
-    window.location = "autoresInsForm";
+function profesoresIns() {
+    window.location = "profesoresInsForm";
 }
 
 function autoresDel() {

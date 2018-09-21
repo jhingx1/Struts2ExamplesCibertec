@@ -17,23 +17,26 @@
         <script src="parainfo/table.js" type="text/javascript"></script>
         <script src="parainfo/message.js" type="text/javascript"></script>
 
-        <script src="js/autores.js" type="text/javascript"></script>
+        <script src="js/profesores.js" type="text/javascript"></script>
     </head>
     <body>
         <table class="parainfo" style="margin: auto;width: 300px">
             <thead>
                 <tr>
-                    <td>Autor</td>
+                    <td>Nombre Profesores</td>
+                    <td>Carrera</td>
+                    <td>Fecha Hora Ingreso</td>
+                    <td>Tipo Contrato</td>
                     <th class="crud">
-                        <a class="ins" href="#" onclick="autoresIns();"
+                        <a class="ins" href="#" onclick="profesoresIns();"
                            title="Nuevo Registro"><span></span></a>
                     </th>
                     <th class="crud">
-                        <a class="del" href="#" onclick="autoresDel();"
+                        <a class="del" href="#" onclick="profesoresDel();"
                            title="Retirar Registros"><span></span></a>
                     </th>
                     <th class="crud">
-                        <a class="upd" href="#" onclick="autoresUpd();"
+                        <a class="upd" href="#" onclick="profesoresUpd();"
                            title="Actualizar Registro"><span></span></a>
                     </th>
                 </tr>
@@ -41,7 +44,10 @@
             <tbody>
                 <s:iterator value="list">
                     <tr>
-                        <td colspan="2"><s:property value="autor"/></td>
+                        <td><s:property value="nombreprofesores"/></td>
+                        <td><s:property value="carrera"/></td>
+                        <td><s:property value="fechahoraingreso"/></td>
+                        <td colspan="2"><s:property value="tipocontrato"/></td>
                         <th>
                             <input type="checkbox" name="idautor_del" 
                                    value="${idautor}"/>

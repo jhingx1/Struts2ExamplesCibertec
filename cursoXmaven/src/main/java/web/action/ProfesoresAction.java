@@ -9,9 +9,9 @@ import org.apache.struts2.ServletActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.Validateable;
 
-import dao.DaoAutores;
-import dao.impl.DaoAutoresImpl;
-import dto.Autores;
+import dao.DaoProfesores;
+import dao.impl.DaoProfesoresImpl;
+import dto.Profesores;
 import parainfo.convert.DeString;
 
 public class ProfesoresAction 
@@ -19,27 +19,27 @@ public class ProfesoresAction
 
 	private static final long serialVersionUID = 1L;
 
-	private Autores autores;
-	private List<Autores> list;
+	private Profesores profesores;
+	private List<Profesores> list;
 
 	public ProfesoresAction() {
 	}
 
 	// getter y setter
-	public Autores getAutores() {
-		return autores;
+	public Profesores getProfesores() {
+		return profesores;
 	}
 
-	public void setAutores(Autores autores) {
-		this.autores = autores;
+	public void setProfesores(Profesores profesores) {
+		this.profesores = profesores;
 	}
 
-	public List<Autores> getList() {
-		DaoAutores daoAutores = new DaoAutoresImpl();
-		list = daoAutores.autoresQry();
+	public List<Profesores> getList() {
+		DaoProfesores daoProfesores = new DaoProfesoresImpl();
+		list = daoProfesores.profesoresQry();
 
 		if (list == null) {
-			String message = daoAutores.getMessage();
+			String message = daoProfesores.getMessage();
 
 			HttpServletRequest request = 
 					ServletActionContext.getRequest();
@@ -50,9 +50,9 @@ public class ProfesoresAction
 	}
 
 	// gestiona CRUD
-	public String autoresIns() {
-		DaoAutores daoAutores = new DaoAutoresImpl();
-		String result = daoAutores.autoresIns(autores);
+	public String profesoresIns() {
+		DaoProfesores daoProfesores = new DaoProfesoresImpl();
+		String result = daoProfesores.profesoresIns(profesores);
 
 		if (result != null) {
 			HttpServletRequest request = 
@@ -64,7 +64,7 @@ public class ProfesoresAction
 		}
 	}
 
-	public String autoresDel() {
+	public String profesoresDel() {
 		HttpServletRequest request = 
 				ServletActionContext.getRequest();
 		List<Integer> ids = 
@@ -74,8 +74,8 @@ public class ProfesoresAction
 		if (ids == null) {
 			result = "Lista de ID(s) incorrecta";
 		} else {
-			DaoAutores daoAutores = new DaoAutoresImpl();
-			result = daoAutores.autoresDel(ids);
+			DaoProfesores daoProfesores = new DaoProfesoresImpl();
+			result = daoProfesores.profesoresDel(ids);
 		}
 
 		if (result == null) {
@@ -87,18 +87,18 @@ public class ProfesoresAction
 		}
 	}
 
-	public String autoresGet() {
+	public String profesoresGet() {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		Integer idautor = 
 				DeString.aInteger(request.getParameter("idautor"));
 
 		String result = null;
 		if (idautor != null) {
-			DaoAutores daoAutores = new DaoAutoresImpl();
-			autores = daoAutores.autoresGet(idautor);
+			DaoProfesores daoProfesores = new DaoProfesoresImpl();
+			profesores = daoProfesores.profesoresGet(idautor);
 
-			if (autores == null) {
-				result = daoAutores.getMessage();
+			if (profesores == null) {
+				result = daoProfesores.getMessage();
 			}
 		} else {
 			result = "ID incorrecto";
@@ -113,9 +113,9 @@ public class ProfesoresAction
 		}
 	}
 
-	public String autoresUpd() {
-		DaoAutores daoAutores = new DaoAutoresImpl();
-		String result = daoAutores.autoresUpd(autores);
+	public String profesoresUpd() {
+		DaoProfesores daoProfesores = new DaoProfesoresImpl();
+		String result = daoProfesores.profesoresUpd(profesores);
 
 		if (result != null) {
 			HttpServletRequest request = 
@@ -130,10 +130,10 @@ public class ProfesoresAction
 	// validaciones
 	@Override
 	public void validate() {
-		if (autores != null) {
-			if ((autores.getAutor() == null) 
-					|| (autores.getAutor().trim().length() == 0)) {
-				addFieldError("autores.autor", "Ingrese nombre de Autor");
+		if (profesores != null) {
+			if ((profesores.getNombreprofesores()== null) 
+					|| (profesores.getNombreprofesores().trim().length() == 0)) {
+				addFieldError("profesores.autor", "Ingrese nombre de Autor");
 			}
 		}
 	}

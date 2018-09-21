@@ -5,11 +5,14 @@
 <struts>
     <package name="default" extends="struts-default" namespace="/">
         
-        <!-- autores -->
+        <!-- Profesores -->
         <action name="profesoresQry" class="web.action.ProfesoresAction">
             <result name="success">/view/profesoresQry.jsp</result>
         </action>
         
+        <action name="profesoresInsForm" class="web.action.ProfesoresAction">
+            <result name="success">/view/profesoresIns.jsp</result>
+        </action>
         
         
         

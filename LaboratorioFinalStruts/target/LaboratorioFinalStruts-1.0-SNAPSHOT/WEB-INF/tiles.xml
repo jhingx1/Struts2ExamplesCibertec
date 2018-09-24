@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+    <definition name="d_principal"
+                template="/plantillas/plantilla01.jsp">
+        <put-attribute name="cabecera"
+                       value="/comun/cabecera.jsp"/>
+        <put-attribute name="menu"
+                       value="/comun/menu.jsp"/>
+        <put-attribute name="cuerpo"
+                       value="/seguridad/principal.jsp"/>
+        <put-attribute name="pie"
+                       value="/comun/pie.jsp"/>
+    </definition>
+    <definition name="d_listaProducto" extends="d_principal"> 
+        <put-attribute name="cuerpo" value="/producto/listaProducto.jsp"/>
+    </definition>
+    <definition name="d_nuevoProducto" extends="d_principal">
+        <put-attribute name="cuerpo"
+                       value="/producto/nuevoProducto.jsp"/>
+    </definition>
+    <definition name="d_modificaProducto" extends="d_principal">
+        <put-attribute name="cuerpo"
+                       value="/producto/modificarProducto.jsp"/>
+    </definition>
+</tiles-definitions>

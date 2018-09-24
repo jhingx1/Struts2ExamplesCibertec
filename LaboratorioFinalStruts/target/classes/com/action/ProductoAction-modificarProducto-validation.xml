@@ -1,0 +1,22 @@
+<!DOCTYPE validators PUBLIC 
+ "-//Apache Struts//XWork Validator 1.0.2//EN" 
+ "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+
+<validators>
+   
+    <field name="producto.nombre">
+        <field-validator type="requiredstring">
+            <message key="Campo requerido"/>
+        </field-validator>
+    </field>
+    
+    <field name="producto.precio">
+        <field-validator type="regex">
+            <param name="regex">[0-9]*</param>
+            <message key="Ingrese solo numeros"/>
+        </field-validator>
+    </field>
+    
+    
+    
+</validators>

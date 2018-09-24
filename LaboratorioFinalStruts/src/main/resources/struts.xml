@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+   "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+   "http://struts.apache.org/dtds/struts-2.0.dtd">   
+   
+<struts>
+    
+    <constant name="struts.custom.i18n.resources" value="global"/>
+    
+    <package name="default" extends="struts-default">
+        <result-types>
+            <result-type name="tiles"
+                         class="org.apache.struts2.views.tiles.TilesResult">
+            </result-type>
+        </result-types>
+        <interceptors>
+            <interceptor name="rangoHora" class="com.interceptor.RangoHorarioInterceptor"/>
+            
+            <interceptor-stack name="horarioStack">
+                <interceptor-ref name="rangoHora"/>
+                <interceptor-ref name="defaultStack"/>
+            </interceptor-stack>
+        </interceptors>
+        <!--Metodos Seguridad-->
+        <action name="inicio" class="com.action.UsuarioAction" method="inicio">
+             <result name="login">/seguridad/login.jsp</result>
+        </action>    
+        <action name="login" class="com.action.UsuarioAction" method="login">
+            <interceptor-ref name="horarioStack"/>
+            <result type="tiles">d_principal</result>
+            <result name="login">/seguridad/login.jsp</result>            
+            <result name="input">/seguridad/login.jsp</result>            
+            <result name="cerrado">/seguridad/cerrado.jsp</result>
+        </action>
+        <action name="irPrincipal" class="com.action.UsuarioAction" method="irPrincipal">
+            <result type="tiles">d_principal</result>
+        </action>
+        <action name="logout" class="com.action.UsuarioAction" method="logout">
+            <result name="login">/seguridad/login.jsp</result>
+        </action>
+        <!--Metodos Producto-->
+        <action name="listarProducto" class="com.action.ProductoAction" method="listarTodo">
+            <result type="tiles">d_listaProducto</result>
+        </action>
+        <action name="irNuevoProducto" class="com.action.ProductoAction" method="irNuevoProducto">
+            <result type="tiles">d_nuevoProducto</result>
+        </action>
+        <action name="registrarProducto" class="com.action.ProductoAction" method="crearProducto">
+            <result name="input" type="tiles">d_nuevoProducto</result>
+            <result type="redirectAction">listarProducto</result>
+        </action>
+        <action name="eliminarProducto" class="com.action.ProductoAction" method="eliminarProducto">
+            <result type="redirectAction">listarProducto</result>
+        </action>
+        <action name="irModificarProducto" class="com.action.ProductoAction" method="irModificarProducto">
+            <result type="tiles">d_modificaProducto</result>
+        </action>
+        <action name="modificarProducto" class="com.action.ProductoAction" method="modificarProducto">
+            <result name="input" type="tiles">d_modificaProducto</result>
+            <result type="redirectAction">listarProducto</result>
+        </action>
+        
+        
+    </package>
+</struts>

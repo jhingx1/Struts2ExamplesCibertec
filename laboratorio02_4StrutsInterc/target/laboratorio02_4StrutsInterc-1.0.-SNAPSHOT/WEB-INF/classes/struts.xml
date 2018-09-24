@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <constant name="struts.devMode" value="true"/>
+    <package name="default" extends="struts-default">
+        <!-- 
+        <interceptors>
+            <interceptor name="rangoHora" class="pe.edu.cibertec.interceptor.RangoHoraInterceptor"/>
+            
+             <interceptor-stack name="horarioStack">
+                     <interceptor-ref name="rangoHora"/>
+                     <interceptor-ref name="defaultStack"/>
+             </interceptor-stack>
+         </interceptors>
+        -->
+        <action name="login" class="pe.edu.cibertec.action.UsuarioAction"
+                method="login">
+            <result>/principal.jsp</result>
+            <result name="login">/login.jsp</result>        
+        </action>    
+        <action name="logout" class="pe.edu.cibertec.action.UsuarioAction"
+                method="logout">
+            <result name="login">/login.jsp</result>         
+        </action>
+        <action name="inicializarCliente" class="pe.edu.cibertec.action.ClienteAction" method="inicializar">         
+            <result>/nuevo.jsp</result>     
+        </action>
+        <action name="registrarCliente" class="pe.edu.cibertec.action.ClienteAction"
+                method="registrar">
+            <result>/resultado.jsp</result>         
+        </action>
+    </package>
+
+</struts>

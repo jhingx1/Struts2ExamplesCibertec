@@ -1,0 +1,49 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="default" extends="struts-default" namespace="/">
+        
+        <!-- autores -->
+        <action name="amigosQry" class="web.action.AutoresAction">
+            <result name="success">/view/amigosQry.jsp</result>
+        </action>        
+
+        <action name="amigosInsForm" class="web.action.AutoresAction">
+            <result name="success">/view/amigosIns.jsp</result>
+        </action>
+        
+        <action name="amigosIns" class="web.action.AutoresAction"
+                method="amigosIns">
+            <result name="input">/view/amigosIns.jsp</result>
+            <result name="success" type="redirect">amigosQry</result> 
+            <result name="error">/view/amigosIns.jsp</result>  
+        </action>
+        
+        <action name="amigosDel" class="web.action.AutoresAction"
+                method="amigosDel">
+            <result name="success" type="redirect">amigosQry</result> 
+            <result name="error">/view/amigosQry.jsp</result>  
+        </action>
+        
+        <action name="amigosGet" class="web.action.AutoresAction"
+                method="amigosGet">
+            <result name="success">/view/amigosUpd.jsp</result> 
+            <result name="error">/view/amigosQry.jsp</result>  
+        </action>
+    
+        <action name="amigosUpd" class="web.action.AutoresAction"
+                method="amigosUpd">
+            <result name="input">/view/amigosUpd.jsp</result>
+            <result name="success" type="redirect">amigosQry</result> 
+            <result name="error">/view/amigosUpd.jsp</result>  
+        </action>
+    
+        
+        
+        
+
+    </package>
+</struts>
+

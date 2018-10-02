@@ -1,6 +1,6 @@
 -- MySQL Workbench Forward Engineering
 
-DROP TABLE IF EXISTS cursoss;
+DROP TABLE IF EXISTS cursos;
 DROP TABLE IF EXISTS profesores;
 
 -- -----------------------------------------------------

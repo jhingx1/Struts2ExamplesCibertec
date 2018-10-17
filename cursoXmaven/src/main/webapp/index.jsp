@@ -1,2 +1,2 @@
-<% response.sendRedirect("cursosQry"); %>
+<% response.sendRedirect("frasesQry"); %>
 

@@ -1,0 +1,10 @@
+dao\impl\DaoFrasesImpl.class
+web\action\AutoresAction.class
+parainfo\convert\DeString.class
+dao\DaoFrases.class
+dto\Autores.class
+web\action\FrasesAction.class
+dao\impl\DaoAutoresImpl.class
+parainfo\sql\ConectaDb.class
+dao\DaoAutores.class
+dto\Frases.class

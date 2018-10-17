@@ -5,75 +5,76 @@
 <struts>
     <package name="default" extends="struts-default" namespace="/">
         
-        <!-- Profesores -->
-        <action name="profesoresQry" class="web.action.ProfesoresAction">
-            <result name="success">/view/profesoresQry.jsp</result>
+        <!-- autores -->
+        <action name="autoresQry" class="web.action.AutoresAction">
+            <result name="success">/view/autoresQry.jsp</result>
         </action>
         
-        <action name="profesoresInsForm" class="web.action.ProfesoresAction">
-            <result name="success">/view/profesoresIns.jsp</result>
+        <action name="autoresInsForm" class="web.action.AutoresAction">
+            <result name="success">/view/autoresIns.jsp</result>
         </action>
         
-        <action name="profesoresIns" class="web.action.ProfesoresAction"
-                method="profesoresIns">
-            <result name="input">/view/profesoresIns.jsp</result>
-            <result name="success" type="redirect">profesoresQry</result> 
-            <result name="error">/view/profesoresIns.jsp</result>  
+        <action name="autoresIns" class="web.action.AutoresAction"
+                method="autoresIns">
+            <result name="input">/view/autoresIns.jsp</result>
+            <result name="success" type="redirect">autoresQry</result> 
+            <result name="error">/view/autoresIns.jsp</result>  
         </action>
         
-        <action name="profesoresDel" class="web.action.ProfesoresAction"
-                method="profesoresDel">
-            <result name="success" type="redirect">profesoresQry</result> 
-            <result name="error">/view/profesoresQry.jsp</result>  
+        <action name="autoresDel" class="web.action.AutoresAction"
+                method="autoresDel">
+            <result name="success" type="redirect">autoresQry</result> 
+            <result name="error">/view/autoresQry.jsp</result>  
         </action>
         
-        <action name="profesorGet" class="web.action.ProfesoresAction"
-                method="profesoresGet">
-            <result name="success">/view/profesoresUpd.jsp</result> 
-            <result name="error">/view/profesoresQry.jsp</result>  
+        <action name="autoresGet" class="web.action.AutoresAction"
+                method="autoresGet">
+            <result name="success">/view/autoresUpd.jsp</result> 
+            <result name="error">/view/autoresQry.jsp</result>  
         </action>
         
-        <action name="profesoresUpd" class="web.action.ProfesoresAction"
-                method="profesoresUpd">
-            <result name="input">/view/profesoresUpd.jsp</result>
-            <result name="success" type="redirect">profesoresQry</result> 
-            <result name="error">/view/profesoresUpd.jsp</result>  
+        <action name="autoresUpd" class="web.action.AutoresAction"
+                method="autoresUpd">
+            <result name="input">/view/autoresUpd.jsp</result>
+            <result name="success" type="redirect">autoresQry</result> 
+            <result name="error">/view/autoresUpd.jsp</result>  
         </action>
         
-        <!--- Cursos-->
-        <action name="cursosQry" class="web.action.CursosAction">
-            <result name="success">/view/cursosQry.jsp</result>
-        </action>
-        <action name="cursosInsForm" class="web.action.CursosAction">
-            <result name="success">/view/cursosIns.jsp</result>
+        <!-- frases -->
+        <action name="frasesQry" class="web.action.FrasesAction">
+            <result name="success">/view/frasesQry.jsp</result>
         </action>
         
-        <action name="cursosIns" class="web.action.CursosAction" method="cursosIns">
-                <result name="input">/view/cursosIns.jsp</result>
-                <result name="success" type="redirect">cursosQry</result>
-                <result name="error">/view/cursosIns.jsp</result>    
+        <action name="frasesInsForm" class="web.action.FrasesAction">
+            <result name="success">/view/frasesIns.jsp</result>
+        </action>
+        
+        <action name="frasesIns" class="web.action.FrasesAction"
+                method="frasesIns">
+            <result name="input">/view/frasesIns.jsp</result>
+            <result name="success" type="redirect">frasesQry</result> 
+            <result name="error">/view/frasesIns.jsp</result>  
+        </action>
+        
+        <action name="frasesDel" class="web.action.FrasesAction"
+                method="frasesDel">
+            <result name="success" type="redirect">frasesQry</result> 
+            <result name="error">/view/frasesQry.jsp</result>  
+        </action>
+        
+        <action name="frasesGet" class="web.action.FrasesAction"
+                method="frasesGet">
+            <result name="success">/view/frasesUpd.jsp</result> 
+            <result name="error">/view/frasesQry.jsp</result>  
+        </action>
+        
+        <action name="frasesUpd" class="web.action.FrasesAction"
+                method="frasesUpd">
+            <result name="input">/view/frasesUpd.jsp</result>
+            <result name="success" type="redirect">frasesQry</result> 
+            <result name="error">/view/frasesUpd.jsp</result>  
         </action>
 
-        <action name="cursosDel" class="web.action.CursosAction"
-                method="cursosDel">
-            <result name="success" type="redirect">cursosQry</result> 
-            <result name="error">/view/cursosQry.jsp</result>  
-        </action>
-        
-        <action name="cursosGet" class="web.action.CursosAction"
-                method="cursosGet">
-            <result name="success">/view/cursosUpd.jsp</result> 
-            <result name="error">/view/cursosQry.jsp</result>  
-        </action>
-        
-        <action name="cursosUpd" class="web.action.CursosAction"
-                method="cursosUpd">
-            <result name="input">/view/cursosUpd.jsp</result>
-            <result name="success" type="redirect">cursosQry</result> 
-            <result name="error">/view/cursosUpd.jsp</result>  
-        </action>
-        
-        
     </package>
 </struts>
 

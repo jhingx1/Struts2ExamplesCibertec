@@ -1,10 +1,9 @@
-
 table.parainfo {
     border-collapse: collapse;
 }
 
 table.parainfo thead td, table.parainfo thead th {
-    padding: 10px;
+    padding: 8px;
 }
 
 table.parainfo tbody td, table.parainfo tbody th {

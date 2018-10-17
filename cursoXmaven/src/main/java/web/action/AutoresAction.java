@@ -52,7 +52,7 @@ public class AutoresAction
 	// gestiona CRUD
 	public String autoresIns() {
 		DaoAutores daoAutores = new DaoAutoresImpl();
-                    String result = daoAutores.autoresIns(autores);
+		String result = daoAutores.autoresIns(autores);
 
 		if (result != null) {
 			HttpServletRequest request = 

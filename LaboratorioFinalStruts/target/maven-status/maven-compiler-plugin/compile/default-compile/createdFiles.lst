@@ -1,0 +1,8 @@
+com\interceptor\RangoHorarioInterceptor.class
+com\entity\Usuario.class
+com\dao\DaoProducto.class
+com\util\SqlConecta.class
+com\dao\implement\PersistenceDaoProducto.class
+com\entity\Producto.class
+com\action\ProductoAction.class
+com\action\UsuarioAction.class
